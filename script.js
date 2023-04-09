@@ -2,6 +2,7 @@ const toureiro = document.querySelector(".touriero");
 const eggman = document.querySelector(".eggman");
 const fundo = document.querySelector(".fundo");
 const score = document.querySelector(".score");
+const startButton = document.querySelector(".start-button");
 
  let count = 0;
  let interval;
@@ -14,13 +15,8 @@ function jump() {
   setTimeout(() => {
     toureiro.classList.remove("jump");
     toureiro.src = "/img/toureiro.gif";
-  }, 800);
+  }, 400);
 }
-
-setInterval(() => {
-  animationDuration -= 0.5; // diminui em 0.1 segundos a duração da animação
-  eggman.style.animationDuration = `${animationDuration}s`; // atualiza a duração da animação
-}, 15000); // a cada 10 segundos diminui em 0.1 segundos a duração da animação
 
 const loop = setInterval(() => {
   const eggmanPosition = eggman.offsetLeft;
@@ -28,7 +24,7 @@ const loop = setInterval(() => {
     .getComputedStyle(toureiro)
     .bottom.replace("px", "");
 
-  if (eggmanPosition < 20 && eggmanPosition > 0 && tourieroPosition < 150) {
+  if (eggmanPosition < 20 && eggmanPosition > 0 && tourieroPosition < 149) {
     eggman.style.animation = "none";
     eggman.style.left = `${eggmanPosition}px`;
 
@@ -38,14 +34,17 @@ const loop = setInterval(() => {
 
     fundo.src = "/img/game-over.png";
     stopCounting(); // para a contagem do score
-    
   }
-
-
   
   count++;
   score.innerHTML = `SCORE: ${count}`;
 
-}, 20);
+}, 10);
+
+setInterval(() => {
+  animationDuration -= 0.1; // diminui em 0.1 segundos a duração da animação
+  eggman.style.animationDuration = `${animationDuration}s`; // atualiza a duração da animação
+}, 10000); // a cada 10 segundos diminui em 0.1 segundos a duração da animação
+
 
 document.addEventListener("click", jump);
