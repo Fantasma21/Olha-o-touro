@@ -13,7 +13,7 @@
   overflow: hidden;
 }
 
-/*               FALTA ATUALIZAR O BOTÃO START    
+/*               FALTA ATUALIZAR O BOTÃO START
 .start-button{
   width: 100px;
   height: 40px;
@@ -41,12 +41,12 @@
   animation: 0.4s toureiro_animation infinite ease-out;
 }
 
-.eggman {
+.eggman { 
   width: 250px;
   position: absolute;
   bottom: 10px;
-  right: 0;
-  animation: 2s eggman_animation infinite linear;
+  right:0 ;
+animation: 3s eggman_animation infinite linear;  
 }
 
 .fundo {

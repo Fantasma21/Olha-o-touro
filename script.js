@@ -6,7 +6,7 @@ const startButton = document.querySelector(".start-button");
 
  let count = 0;
  let interval;
- let animationDuration = 2; // duração inicial da animação
+ let animationDuration = 3; // duração inicial da animação
 
 function jump() {
   toureiro.classList.add("jump");
@@ -39,12 +39,12 @@ const loop = setInterval(() => {
   count++;
   score.innerHTML = `SCORE: ${count}`;
 
-}, 10);
+}, 20);
 
 setInterval(() => {
-  animationDuration -= 0.1; // diminui em 0.1 segundos a duração da animação
+  animationDuration -= 0.002; // diminui em 0.1 segundos a duração da animação
   eggman.style.animationDuration = `${animationDuration}s`; // atualiza a duração da animação
-}, 10000); // a cada 10 segundos diminui em 0.1 segundos a duração da animação
+}, 50); // a cada 10 segundos diminui em 0.1 segundos a duração da animação
 
 
 document.addEventListener("click", jump);
