@@ -4,14 +4,16 @@ const fundo = document.querySelector(".fundo");
 const score = document.querySelector(".score");
 const startButton = document.querySelector(".start-button");
 
-const audio2 = document.querySelector(".audio2")
+const audio3 = document.querySelector(".audio3");
+
+const audio2 = document.querySelector(".audio2");
 let playedAudio = false; // adiciona a variável playedAudio para indicar se o áudio já foi tocado
 
  let count = 0;
  let interval;
  let animationDuration = 3; // duração inicial da animação
 
-
+ audio3.play();
 
 function jump() {
   toureiro.classList.add("jump");
@@ -29,14 +31,17 @@ const loop = setInterval(() => {
     .getComputedStyle(toureiro)
     .bottom.replace("px", "");
 
-  if (eggmanPosition < 20 && eggmanPosition > 0 && tourieroPosition < 149) {
+  if (eggmanPosition < 20 && eggmanPosition > 0 && tourieroPosition < 149) { 
     eggman.style.animation = "none";
     eggman.style.left = `${eggmanPosition}px`;
     toureiro.style.animation = "none";
     toureiro.src = "/img/ferido1.png";
     toureiro.style.width = "140px";
-    
+   
     fundo.src = "/img/game-over.png";
+
+    audio3.pause(); // adiciona o comando para pausar o áudio3
+
      // adiciona verificação para saber se o áudio já foi tocado ou não
      if (!playedAudio) {
       audio2.play();
